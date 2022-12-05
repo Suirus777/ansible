@@ -1,0 +1,28 @@
+---
+- hosts: devops
+  gather_facts: true
+  tasks:
+  - name: Update the apt package index in Ubuntu server
+    become: yes
+    apt:
+      update_cache: yes
+      force_apt_get: yes
+
+  - name: Install web server  nginx on Ubuntu server
+    become: yes
+    package:
+      name: nginx
+      state: present
+
+
+  - name: add new html file to nginx
+    become: yes
+    template: 
+      src: /home/odmin/ansible/mods/nginx.j2
+      dest: /var/www/html/index.nginx-debian.html
+    
+  - name: nginx-server start 
+    become: yes
+    ansible.builtin.systemd:
+      name: nginx
+      state: started

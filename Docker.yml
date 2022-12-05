@@ -1,0 +1,26 @@
+---
+- hosts: devops
+  tasks:
+  - name: Update the apt package index in Ubuntu server
+    become: yes
+    apt:
+      update_cache: yes
+      force_apt_get: yes
+
+  - name: install docker package
+    become: yes
+    package:
+      name: docker
+      state: present
+
+  - name: install docker.io package
+    become: yes
+    package:
+      name: docker.io
+      state: present
+
+  - name: Docker start 
+    become: yes
+    ansible.builtin.systemd:
+      name: docker
+      state: restarted

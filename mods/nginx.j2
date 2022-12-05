@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jinja2 Template Demo</title>
+</head>
+<body>
+  <h1>Welcome to Linuxhint!</h1>
+
+<h1> Test templates of ansible! </h1>
+The hostname: <b> {{ ansible_facts['nodename'] }} </b>
+</br>
+The memory of server: <b> {{ ansible_facts['memory_mb'] }} </b>
+</br>
+The CPU of server: <b> {{ ansible_facts['processor'] }} </b>
+</br>
+The OS famaly of server: <b> {{ ansible_facts['os_family'] }} </b>
+</body>
+</html>

@@ -1,0 +1,20 @@
+---
+- hosts: devops
+  tasks:
+  - name: Update the apt package index in Ubuntu server
+    become: yes
+    apt:
+      update_cache: yes
+      force_apt_get: yes
+
+  - name: Install Mysql-server on Ubuntu server
+    become: yes
+    package:
+      name: mysql-server
+      state: present
+
+  - name: MySQL-server start 
+    become: yes
+    ansible.builtin.systemd:
+      name: mysql
+      state: started
