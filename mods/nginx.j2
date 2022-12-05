@@ -4,7 +4,7 @@
   <title>Jinja2 Template Demo</title>
 </head>
 <body>
-  <h1>Welcome to Linuxhint!</h1>
+  <h1>Welcome to <b> {{ ansible_facts['os_family'] }} !</b></h1>
 
 <h1> Test templates of ansible! </h1>
 The hostname: <b> {{ ansible_facts['nodename'] }} </b>
